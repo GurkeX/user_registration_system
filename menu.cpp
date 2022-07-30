@@ -1,7 +1,5 @@
 #include "menu.h"
 
-#include <iostream>
-
 using namespace std;
 
 menu::menu()
@@ -9,14 +7,14 @@ menu::menu()
     cout << "New menu has been created!" << endl;
 }
 
-void menu::first_menu() {
+void menu::main_menu() {
     bool valid_input = false;
     int user_input;
 
     while(!valid_input) {
         user_input = 0;
-        cout << "(1) Create new user" << endl
-            << "(2) Log in to existing user" << endl
+        cout << "(1) Create new account" << endl
+            << "(2) Log in to existing account" << endl
             << "(3) EXIT" << endl
             << endl
             << "Input: ";
@@ -27,12 +25,12 @@ void menu::first_menu() {
             switch (user_input)
             {
             case 1:
-                user_and_password_input();
+                new_user();
                 valid_input = true;
                 break;
 
             case 2:
-                //user_login();
+                user_login();
                 valid_input = true;
                 break;
             

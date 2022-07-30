@@ -1,13 +1,15 @@
 #pragma once
 
-#include "input.h"
+#include "users.h"
 
-class menu : public input
+#include <iostream>
+
+class menu : public users
 {
 private:
 
 public:
     menu();
 
-    void first_menu();
+    void main_menu();
 };

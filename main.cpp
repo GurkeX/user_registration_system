@@ -11,7 +11,7 @@ int main(int argc, const char *argv[]) {
     menu menu;
 
     while(true) {
-        menu.first_menu();
+        menu.main_menu();
     }
 
 
