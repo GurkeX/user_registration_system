@@ -20,7 +20,7 @@ bool users::user_signed_in() {
 void users::new_user() {
     user_and_password_input(user_and_password);
 
-    ofstream user_file("/home/riko/Documents/user_registration_system/users/" + user_and_password.first + "_account.txt");
+    ofstream user_file("/home/riko/Documents/user_registration_system/users/" + user_and_password.first + ".txt");
 
     if(user_file.is_open()) {
         user_file << user_and_password.second << endl;
@@ -37,7 +37,7 @@ void users::new_user() {
 void users::user_login() {
     active_username = username_input();
 
-    ifstream user_file("/home/riko/Documents/user_registration_system/users/" + active_username + "_account.txt");
+    ifstream user_file("/home/riko/Documents/user_registration_system/users/" + active_username + ".txt");
 
     if(user_file.is_open()) {
         user_file >> active_password;
@@ -62,7 +62,7 @@ void users::change_password() {
     string new_password;
     if(correct_password_check(active_password)) {
         new_password = new_password_input();
-        ofstream user_file("/home/riko/Documents/user_registration_system/users/" + active_username + "_account.txt", std::ofstream::out | std::ofstream::trunc);
+        ofstream user_file("/home/riko/Documents/user_registration_system/users/" + active_username + ".txt", std::ofstream::out | std::ofstream::trunc);
         if(user_file.is_open()) {
             user_file << new_password;
             user_file.close();

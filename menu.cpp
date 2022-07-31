@@ -78,7 +78,8 @@ void menu::user_menu() {
                 valid_input = true;
                 break;
             case 2:
-                exit(0);
+                cout << "Signed out successfully" << endl;
+                return;
                 break;
             
             default:
