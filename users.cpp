@@ -25,12 +25,15 @@ void users::new_user() {
     if(user_file.is_open()) {
         user_file << user_and_password.second << endl;
         user_file.close();
+        
     }
     else {
         cout << "Unable to open users file" << endl;
     }
 
     cout << "New user " << user_and_password.first << " has been created" << endl;
+    user_and_password.first = "";
+    user_and_password.second = "";
 }
 
 
@@ -66,6 +69,7 @@ void users::change_password() {
         if(user_file.is_open()) {
             user_file << new_password;
             user_file.close();
+            active_password = new_password;
             cout << "Password has been changed successfully!" << endl;
         }
         else {

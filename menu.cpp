@@ -53,10 +53,9 @@ void menu::main_menu() {
 }
 
 void menu::user_menu() {
-    bool valid_input = false;
     int user_input;
 
-    while(!valid_input) {
+    while(true) {
         user_input = 0;
         cout << "(1) Change password" << endl
              << "(2) Sign out" << endl
@@ -75,9 +74,10 @@ void menu::user_menu() {
             {
             case 1:
                 change_password();
-                valid_input = true;
                 break;
             case 2:
+                active_password = "";
+                active_username = "";
                 cout << "Signed out successfully" << endl;
                 return;
                 break;

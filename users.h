@@ -13,6 +13,8 @@ class users : public input
 private:
     bool user_logged_in;
     std::pair<std::string, std::string> user_and_password;
+    
+protected:
     std::string active_username;
     std::string active_password;
 
