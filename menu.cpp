@@ -21,7 +21,12 @@ void menu::main_menu() {
 
         cin >> user_input;
 
-        if(!cin.fail()) {
+        if(cin.fail()) {
+            cin.clear();
+            cin.ignore(256, '\n');
+            cout << "Invalid input, please try again" << endl;
+        }
+        else if(!cin.fail()) {
             switch (user_input)
             {
             case 1:
@@ -39,16 +44,9 @@ void menu::main_menu() {
                 break;
             
             default:
+                cout << "Invalid input, please try again" << endl;
                 break;
             }
-        }
-        else if(user_input < 1 || user_input > 3) {
-            cout << "Invalid input, please try again" << endl;
-        }
-        else {
-            cin.clear();
-            cin.ignore(256, '\n');
-            cout << "Invalid input, please try again" << endl;
         }
     }
 }

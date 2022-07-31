@@ -10,10 +10,10 @@ users::users()
 void users::new_user() {
     user_and_password_input(user_and_password);
 
-    ofstream users_file("/home/riko/Documents/user_registration_system/users_file.txt", std::ofstream::app);
+    ofstream users_file("/home/riko/Documents/user_registration_system/users/" + user_and_password.first + "_account.txt");
 
     if(users_file.is_open()) {
-        users_file << user_and_password.first<< " " << user_and_password.second << endl;
+        users_file << user_and_password.second << endl;
         users_file.close();
     }
     else {
@@ -26,33 +26,26 @@ void users::new_user() {
 
 void users::user_login() {
     string username;
-    string word;
     string password;
 
     username = username_input();
 
-    ifstream users_file("/home/riko/Documents/user_registration_system/users_file.txt");
+    ifstream users_file("/home/riko/Documents/user_registration_system/users/" + username + "_account.txt");
 
     if(users_file.is_open()) {
-        while(!users_file.eof()) {
-            users_file >> word;
-            if(username == word) {
-                users_file >> password;
-                if(password_input(password)) {
-                    cout << "You have successfully logged in " << username << endl;
-                    users_file.close();
-                    return;
-                }
-                else {
-                    users_file.close();
-                    return;
-                }
-            }
-        } 
-    cout << "Account does not yet exist" << endl;
+        users_file >> password;
+        if(password_input(password)) {
+            cout << "You have successfully logged in " << username << endl;
+            users_file.close();
+            return;
+        }
+        else {
+            users_file.close();
+            return;
+        }
         
     }
     else {
-        cout << "Unable to open users_file" << endl;
+        cout << "Account does not exist yet" << endl; 
     }    
 }
