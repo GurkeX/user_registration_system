@@ -30,10 +30,10 @@ string input::username_input() {
     return username;
 }
 
-bool input::password_input(string password) {
+bool input::correct_password_check(string password) {
     string password_input;
     for(int i = 2; i > -1; i--) {
-        cout << "Please input your password: ";
+        cout << "Please input your present password: ";
         cin >> password_input;
 
         if(password_input == password) {
@@ -45,4 +45,11 @@ bool input::password_input(string password) {
     }
     cout << "Password has been wrong three times, returning" << endl;
     return false;
+}
+
+string input::new_password_input() {
+    string new_password;
+    cout << "Please input your new password: ";
+    cin >> new_password;
+    return new_password;
 }

@@ -37,9 +37,47 @@ void menu::main_menu() {
             case 2:
                 user_login();
                 valid_input = true;
+
                 break;
             
             case 3:
+                exit(0);
+                break;
+            
+            default:
+                cout << "Invalid input, please try again" << endl;
+                break;
+            }
+        }
+    }
+}
+
+void menu::user_menu() {
+    bool valid_input = false;
+    int user_input;
+
+    while(!valid_input) {
+        user_input = 0;
+        cout << "(1) Change password" << endl
+             << "(2) Sign out" << endl
+             << endl
+             << "Input: ";
+
+        cin >> user_input;
+
+        if(cin.fail()) {
+            cin.clear();
+            cin.ignore(256, '\n');
+            cout << "Invalid input, please try again" << endl;
+        }
+        else if(!cin.fail()) {
+            switch (user_input)
+            {
+            case 1:
+                change_password();
+                valid_input = true;
+                break;
+            case 2:
                 exit(0);
                 break;
             

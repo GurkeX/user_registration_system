@@ -12,4 +12,6 @@ public:
     menu();
 
     void main_menu();
+
+    void user_menu();
 };

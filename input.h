@@ -15,6 +15,8 @@ public:
 
     std::string username_input();
 
-    bool password_input(std::string password);
+    bool correct_password_check(std::string password);
+
+    std::string new_password_input();
 
 };
